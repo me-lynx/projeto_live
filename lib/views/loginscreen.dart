@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:projeto_live/views/mainscreen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -7,8 +9,12 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Image.network(
-                'https://media.giphy.com/media/2A1esTk4B6O8MSb18T/giphy.gif'),
+            Container(
+                width: 250,
+                child: Image.network(
+                  'https://i.imgur.com/L0QdG0L.png',
+                  fit: BoxFit.fill,
+                )),
             Card(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               shape: RoundedRectangleBorder(
@@ -56,6 +62,30 @@ class LoginScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.all(16),
                     ),
                   ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black, // background
+                      onPrimary: Colors.white, // foreground
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyStatefulWidget()),
+                      );
+                    },
+                    child: Text('LOGIN'),
+                  ),
+                  SignInButton(
+                    Buttons.Facebook,
+                    mini: false,
+                    onPressed: () {},
+                  ),
+                  SignInButton(
+                    Buttons.GoogleDark,
+                    mini: false,
+                    onPressed: () {},
+                  )
                 ],
               ),
             ),
